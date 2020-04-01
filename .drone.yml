@@ -98,10 +98,10 @@ steps:
   - ./publish_html.sh
   environment:
     BUILD_TYPE: latest
-    DOC_BRANCH: v3000_docs
+    DOC_BRANCH: v3000.1
     WEBSITE_PASSWORD:
       from_secret: website_password
-    WEBSITE_POINT_RELEASE: 3000
+    WEBSITE_POINT_RELEASE: 3000.1
     WEBSITE_RELEASE: latest
     WEBSITE_USER:
       from_secret: website_user
@@ -127,10 +127,10 @@ steps:
   - ./publish_pdf.sh
   environment:
     BUILD_TYPE: latest
-    DOC_BRANCH: v3000_docs
+    DOC_BRANCH: v3000.1
     WEBSITE_PASSWORD:
       from_secret: website_password
-    WEBSITE_POINT_RELEASE: 3000
+    WEBSITE_POINT_RELEASE: 3000.1
     WEBSITE_RELEASE: latest
     WEBSITE_USER:
       from_secret: website_user
@@ -156,10 +156,10 @@ steps:
   - ./publish_epub.sh
   environment:
     BUILD_TYPE: latest
-    DOC_BRANCH: v3000_docs
+    DOC_BRANCH: v3000.1
     WEBSITE_PASSWORD:
       from_secret: website_password
-    WEBSITE_POINT_RELEASE: 3000
+    WEBSITE_POINT_RELEASE: 3000.1
     WEBSITE_RELEASE: latest
     WEBSITE_USER:
       from_secret: website_user
