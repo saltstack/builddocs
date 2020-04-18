@@ -29,6 +29,8 @@ docker-image:
     changes:
       - container/*
       - .gitlab-ci.yml
+  except:
+    - schedules
 
 master-html:
   stage: build-docs
