@@ -5,8 +5,8 @@
 # PREVIOUS_RELEASE_DIR is the previous major release folder (2019.2), it is the link that the first tab redirects to on https://docs.saltstack.com/en/latest/contents.html (https://docs.saltstack.com/en/2019.2/)
 # See https://github.com/saltstack/salt/blob/master/doc/conf.py for more information
 
-export LATEST_RELEASE='3000.1'
-export PREVIOUS_RELEASE='2019.2.3'
+export LATEST_RELEASE='3000.2'
+export PREVIOUS_RELEASE='2019.2.4'
 export PREVIOUS_RELEASE_DIR='2019.2'
 
 mkdir -p /usr/share/fonts/truetype
