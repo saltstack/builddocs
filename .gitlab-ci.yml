@@ -91,8 +91,8 @@ latest-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3000.2_docs'
-    WEBSITE_POINT_RELEASE: '3000.2'
+    DOC_BRANCH: 'v3000.3'
+    WEBSITE_POINT_RELEASE: '3000.3'
     WEBSITE_RELEASE: latest
   script:
     - ./build_html.sh
@@ -110,8 +110,8 @@ latest-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3000.2_docs'
-    WEBSITE_POINT_RELEASE: '3000.2'
+    DOC_BRANCH: 'v3000.3'
+    WEBSITE_POINT_RELEASE: '3000.3'
     WEBSITE_RELEASE: latest
   script:
     - ./build_pdf.sh
@@ -129,8 +129,8 @@ latest-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3000.2_docs'
-    WEBSITE_POINT_RELEASE: '3000.2'
+    DOC_BRANCH: 'v3000.3'
+    WEBSITE_POINT_RELEASE: '3000.3'
     WEBSITE_RELEASE: latest
   script:
     - ./build_epub.sh
@@ -148,8 +148,8 @@ previous-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.4_docs'
-    WEBSITE_POINT_RELEASE: '2019.2.4'
+    DOC_BRANCH: 'v2019.2.5'
+    WEBSITE_POINT_RELEASE: '2019.2.5'
     WEBSITE_RELEASE: '2019.2'
   script:
     - ./build_html.sh
@@ -167,8 +167,8 @@ previous-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.4_docs'
-    WEBSITE_POINT_RELEASE: '2019.2.4'
+    DOC_BRANCH: 'v2019.2.5'
+    WEBSITE_POINT_RELEASE: '2019.2.5'
     WEBSITE_RELEASE: '2019.2'
   script:
     - ./build_pdf.sh
@@ -186,8 +186,8 @@ previous-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.4_docs'
-    WEBSITE_POINT_RELEASE: '2019.2.4'
+    DOC_BRANCH: 'v2019.2.5'
+    WEBSITE_POINT_RELEASE: '2019.2.5'
     WEBSITE_RELEASE: '2019.2'
   script:
     - ./build_epub.sh
