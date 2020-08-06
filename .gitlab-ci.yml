@@ -91,8 +91,8 @@ latest-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3001'
-    WEBSITE_POINT_RELEASE: '3001'
+    DOC_BRANCH: 'v3001.1_docs'
+    WEBSITE_POINT_RELEASE: '3001.1'
     WEBSITE_RELEASE: latest
   script:
     - ./build_html.sh
@@ -110,8 +110,8 @@ latest-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3001'
-    WEBSITE_POINT_RELEASE: '3001'
+    DOC_BRANCH: 'v3001.1_docs'
+    WEBSITE_POINT_RELEASE: '3001.1'
     WEBSITE_RELEASE: latest
   script:
     - ./build_pdf.sh
@@ -129,8 +129,8 @@ latest-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3001'
-    WEBSITE_POINT_RELEASE: '3001'
+    DOC_BRANCH: 'v3001.1_docs'
+    WEBSITE_POINT_RELEASE: '3001.1'
     WEBSITE_RELEASE: latest
   script:
     - ./build_epub.sh
@@ -148,9 +148,9 @@ previous-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.3'
-    WEBSITE_POINT_RELEASE: '3000.3'
-    WEBSITE_RELEASE: '3000'
+    DOC_BRANCH: 'v3001'
+    WEBSITE_POINT_RELEASE: '3001'
+    WEBSITE_RELEASE: '3001'
   script:
     - ./build_html.sh
     - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_html.sh; fi
@@ -167,9 +167,9 @@ previous-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.3'
-    WEBSITE_POINT_RELEASE: '3000.3'
-    WEBSITE_RELEASE: '3000'
+    DOC_BRANCH: 'v3001'
+    WEBSITE_POINT_RELEASE: '3001'
+    WEBSITE_RELEASE: '3001'
   script:
     - ./build_pdf.sh
     - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_pdf.sh; fi
@@ -186,9 +186,9 @@ previous-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.3'
-    WEBSITE_POINT_RELEASE: '3000.3'
-    WEBSITE_RELEASE: '3000'
+    DOC_BRANCH: 'v3001'
+    WEBSITE_POINT_RELEASE: '3001'
+    WEBSITE_RELEASE: '3001'
   script:
     - ./build_epub.sh
     - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_epub.sh; fi
