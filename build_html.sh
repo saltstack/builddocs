@@ -30,7 +30,7 @@ sed -i "s#\"topics#\"/en/${WEBSITE_RELEASE}/topics#g" /root/salt/doc/_build/html
 # Dealing with this bug: https://github.com/saltstack/salt/issues/52777
 if [ -f /root/salt/doc/_build/html/py-modindex.html ] && [ ! -e /root/salt/doc/_build/html/salt-modindex.html ]
 then
-	cp -n /root/salt/doc/_build/html/py-modindex.html /root/salt/doc/_build/html/salt-modindex.html
+	echo '<meta http-equiv="refresh" content="0; url=py-modindex.html" />' > /root/salt/doc/_build/html/salt-modindex.html
 fi
 
 if [ ! -e /root/salt/doc/_build/html/salt-modindex.html ]
