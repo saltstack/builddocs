@@ -143,7 +143,7 @@ latest-epub:
       - public/
     expire_in: 7 days
 
-previous-html:
+previous-3001-html:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
@@ -162,7 +162,7 @@ previous-html:
       - public/
     expire_in: 7 days
 
-previous-pdf:
+previous-3001-pdf:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
@@ -181,7 +181,7 @@ previous-pdf:
       - public/
     expire_in: 7 days
 
-previous-epub:
+previous-3001-epub:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
@@ -189,6 +189,132 @@ previous-epub:
     DOC_BRANCH: 'v3001.3_docs'
     WEBSITE_POINT_RELEASE: '3001.3'
     WEBSITE_RELEASE: '3001'
+  script:
+    - ./build_epub.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_epub.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-3000-html:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v3000.5'
+    WEBSITE_POINT_RELEASE: '3000.5'
+    WEBSITE_RELEASE: '3000'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
+  script:
+    - ./build_html.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_html.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-3000-pdf:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v3000.5'
+    WEBSITE_POINT_RELEASE: '3000.5'
+    WEBSITE_RELEASE: '3000'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
+  script:
+    - ./build_pdf.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_pdf.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-3000-epub:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v3000.5'
+    WEBSITE_POINT_RELEASE: '3000.5'
+    WEBSITE_RELEASE: '3000'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
+  script:
+    - ./build_epub.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_epub.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-2019.2-html:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v2019.2.7'
+    WEBSITE_POINT_RELEASE: '2019.2.7'
+    WEBSITE_RELEASE: '2019.2'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
+  script:
+    - ./build_html.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_html.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-2019.2-pdf:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v2019.2.7'
+    WEBSITE_POINT_RELEASE: '2019.2.7'
+    WEBSITE_RELEASE: '2019.2'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
+  script:
+    - ./build_pdf.sh
+    - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_pdf.sh; fi
+  cache:
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-2019.2-epub:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
+  variables:
+    BUILD_TYPE: previous
+    DOC_BRANCH: 'v2019.2.7'
+    WEBSITE_POINT_RELEASE: '2019.2.7'
+    WEBSITE_RELEASE: '2019.2'
+    PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
+    PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
   script:
     - ./build_epub.sh
     - if [ "${CI_COMMIT_REF_PROTECTED}" == "true" ]; then ./publish_epub.sh; fi

@@ -6,8 +6,8 @@
 # See https://github.com/saltstack/salt/blob/master/doc/conf.py for more information
 
 export LATEST_RELEASE='3002.2'
-export PREVIOUS_RELEASE='3001.3'
-export PREVIOUS_RELEASE_DIR='3001'
+export PREVIOUS_RELEASE="${PREVIOUS_RELEASE:-3001.3}"
+export PREVIOUS_RELEASE_DIR="${PREVIOUS_RELEASE_DIR:-3001}"
 
 mkdir -p /usr/share/fonts/truetype
 mkdir -p /usr/share/fonts/opentype
