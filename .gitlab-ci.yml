@@ -148,8 +148,8 @@ previous-3001-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3001.3_docs'
-    WEBSITE_POINT_RELEASE: '3001.3'
+    DOC_BRANCH: 'v3001.4'
+    WEBSITE_POINT_RELEASE: '3001.4'
     WEBSITE_RELEASE: '3001'
   script:
     - ./build_html.sh
@@ -167,8 +167,8 @@ previous-3001-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3001.3_docs'
-    WEBSITE_POINT_RELEASE: '3001.3'
+    DOC_BRANCH: 'v3001.4'
+    WEBSITE_POINT_RELEASE: '3001.4'
     WEBSITE_RELEASE: '3001'
   script:
     - ./build_pdf.sh
@@ -186,8 +186,8 @@ previous-3001-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3001.3_docs'
-    WEBSITE_POINT_RELEASE: '3001.3'
+    DOC_BRANCH: 'v3001.4'
+    WEBSITE_POINT_RELEASE: '3001.4'
     WEBSITE_RELEASE: '3001'
   script:
     - ./build_epub.sh
@@ -205,8 +205,8 @@ previous-3000-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.5'
-    WEBSITE_POINT_RELEASE: '3000.5'
+    DOC_BRANCH: 'v3000.6'
+    WEBSITE_POINT_RELEASE: '3000.6'
     WEBSITE_RELEASE: '3000'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
@@ -226,8 +226,8 @@ previous-3000-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.5'
-    WEBSITE_POINT_RELEASE: '3000.5'
+    DOC_BRANCH: 'v3000.6'
+    WEBSITE_POINT_RELEASE: '3000.6'
     WEBSITE_RELEASE: '3000'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
@@ -247,8 +247,8 @@ previous-3000-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3000.5'
-    WEBSITE_POINT_RELEASE: '3000.5'
+    DOC_BRANCH: 'v3000.6'
+    WEBSITE_POINT_RELEASE: '3000.6'
     WEBSITE_RELEASE: '3000'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
@@ -268,8 +268,8 @@ previous-2019.2-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.7'
-    WEBSITE_POINT_RELEASE: '2019.2.7'
+    DOC_BRANCH: 'v2019.2.8'
+    WEBSITE_POINT_RELEASE: '2019.2.8'
     WEBSITE_RELEASE: '2019.2'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
@@ -289,8 +289,8 @@ previous-2019.2-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.7'
-    WEBSITE_POINT_RELEASE: '2019.2.7'
+    DOC_BRANCH: 'v2019.2.8'
+    WEBSITE_POINT_RELEASE: '2019.2.8'
     WEBSITE_RELEASE: '2019.2'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
@@ -310,8 +310,8 @@ previous-2019.2-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.7.6
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v2019.2.7'
-    WEBSITE_POINT_RELEASE: '2019.2.7'
+    DOC_BRANCH: 'v2019.2.8'
+    WEBSITE_POINT_RELEASE: '2019.2.8'
     WEBSITE_RELEASE: '2019.2'
     PREVIOUS_RELEASE: "${WEBSITE_POINT_RELEASE}"
     PREVIOUS_RELEASE_DIR: "${WEBSITE_RELEASE}"
