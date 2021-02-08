@@ -17,4 +17,4 @@ fc-cache -f -v
 git clone --depth 1 -b ${DOC_BRANCH} https://github.com/saltstack/salt /root/salt
 virtualenv venv
 . venv/bin/activate
-pip install -r /root/salt/requirements/static/ci/py3.7/docs.txt || pip install -r /root/salt/requirements/static/py3.7/docs.txt
+pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt || pip install -r /root/salt/requirements/static/py3.8/docs.txt || (pip install distro && pip install -r /root/salt/requirements/static/py3.7/docs.txt)
