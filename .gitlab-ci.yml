@@ -1,5 +1,6 @@
 ---
 stages:
+  - pre-commit
   - docker-images
   - build-docs
   - pages
@@ -9,6 +10,8 @@ default:
     - 'chmod -R g-w,o-w . && umask 0022'
 
 include:
+  - project: 'saltstack/pop/cicd/ci-templates'
+    file: '/lint/pre-commit-run-all.yml'
   - project: 'saltstack/pop/cicd/ci-templates'
     file: '/docker/kaniko-single.yml'
 

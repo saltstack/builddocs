@@ -7,7 +7,7 @@ then
 fi
 
 . ./build_env.sh
-SALT_ON_SALTSTACK=true make -C /root/salt/doc html
+SALT_ON_SALTSTACK=true make -C /root/salt/doc html SPHINX_OPTS=-W
 rm -rf /root/salt/doc/_build/html/_sources
 echo "ErrorDocument 404 /en/${WEBSITE_RELEASE}/404.html" > /root/salt/doc/_build/html/.htaccess
 
@@ -44,4 +44,4 @@ then
 	echo '<meta http-equiv="refresh" content="0; url=contents.html" />' > /root/salt/doc/_build/html/index.html
 fi
 mkdir -p ./public/en/
-rsync -a /root/salt/doc/_build/html/ ./public/en/${WEBSITE_RELEASE}/
+rsync -a /root/salt/doc/_build/html/ "./public/en/${WEBSITE_RELEASE}/"
