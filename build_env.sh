@@ -15,7 +15,7 @@ cp -rfv builddocs/files/fonts/truetype/* /usr/share/fonts/truetype/
 cp -rfv builddocs/files/fonts/opentype/* /usr/share/fonts/opentype/
 fc-cache -f -v
 git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt /root/salt
-virtualenv venv
+python3 -m venv venv
 # shellcheck disable=SC1091
 . venv/bin/activate
 pip install -U pip setuptools wheel
