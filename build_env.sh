@@ -14,7 +14,8 @@ mkdir -p /usr/share/fonts/opentype
 cp -rfv builddocs/files/fonts/truetype/* /usr/share/fonts/truetype/
 cp -rfv builddocs/files/fonts/opentype/* /usr/share/fonts/opentype/
 fc-cache -f -v
-git clone --depth 1 -b ${DOC_BRANCH} https://github.com/saltstack/salt /root/salt
+git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt /root/salt
 virtualenv venv
+# shellcheck disable=SC1091
 . venv/bin/activate
 pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt || pip install -r /root/salt/requirements/static/py3.8/docs.txt || (pip install distro && pip install -r /root/salt/requirements/static/py3.7/docs.txt)

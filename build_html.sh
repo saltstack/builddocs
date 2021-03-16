@@ -44,4 +44,4 @@ then
 	echo '<meta http-equiv="refresh" content="0; url=contents.html" />' > /root/salt/doc/_build/html/index.html
 fi
 mkdir -p ./public/en/
-rsync -a /root/salt/doc/_build/html/ ./public/en/${WEBSITE_RELEASE}/
+rsync -a /root/salt/doc/_build/html/ "./public/en/${WEBSITE_RELEASE}/"
