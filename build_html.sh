@@ -7,7 +7,7 @@ then
 fi
 
 . ./build_env.sh
-SALT_ON_SALTSTACK=true make -C /root/salt/doc html
+SALT_ON_SALTSTACK=true make -C /root/salt/doc html SPHINX_OPTS=-W
 rm -rf /root/salt/doc/_build/html/_sources
 echo "ErrorDocument 404 /en/${WEBSITE_RELEASE}/404.html" > /root/salt/doc/_build/html/.htaccess
 
