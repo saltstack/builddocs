@@ -5,7 +5,7 @@
 # PREVIOUS_RELEASE_DIR is the previous major release folder (2019.2), it is the link that the first tab redirects to on https://docs.saltstack.com/en/latest/contents.html (https://docs.saltstack.com/en/2019.2/)
 # See https://github.com/saltstack/salt/blob/master/doc/conf.py for more information
 
-export LATEST_RELEASE='3005'
+export LATEST_RELEASE='3005.1'
 export PREVIOUS_RELEASE="${PREVIOUS_RELEASE:-3004.2}"
 export PREVIOUS_RELEASE_DIR="${PREVIOUS_RELEASE_DIR:-3004}"
 
@@ -21,3 +21,4 @@ python3 -m venv venv
 pip install -U pip setuptools wheel
 (pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.8/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt || pip install -r /root/salt/requirements/static/py3.8/docs.txt || (pip install distro && pip install -r /root/salt/requirements/static/py3.7/docs.txt)
 pip install jinja2==3.0.3
+
