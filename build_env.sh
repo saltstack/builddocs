@@ -21,4 +21,3 @@ python3 -m venv venv
 pip install -U pip setuptools wheel
 (pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.8/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.8/docs.txt || pip install -r /root/salt/requirements/static/py3.8/docs.txt || (pip install distro && pip install -r /root/salt/requirements/static/py3.7/docs.txt)
 pip install jinja2==3.0.3
-
