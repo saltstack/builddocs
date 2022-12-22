@@ -232,7 +232,6 @@ pages:
   stage: pages
   image: alpine
   script:
-    - echo '<meta http-equiv="refresh" content="0; url=./latest/contents.html" />' > ./public/index.html
     - echo '<meta http-equiv="refresh" content="0; url=contents.html" />' > ./public/latest/index.html
     - find public -maxdepth 3
     - 'echo "Gitlab Pages available at: ${CI_PAGES_URL}"'
