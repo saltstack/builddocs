@@ -100,8 +100,8 @@ latest-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3005.1'
-    WEBSITE_POINT_RELEASE: '3005.1'
+    DOC_BRANCH: 'v3006.0'
+    WEBSITE_POINT_RELEASE: '3006.0'
     WEBSITE_RELEASE: latest
   script:
     - ./build_html.sh
@@ -119,8 +119,8 @@ latest-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3005.1'
-    WEBSITE_POINT_RELEASE: '3005.1'
+    DOC_BRANCH: 'v3006.0'
+    WEBSITE_POINT_RELEASE: '3006.0'
     WEBSITE_RELEASE: latest
   script:
     - ./build_pdf.sh
@@ -138,8 +138,8 @@ latest-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3005.1'
-    WEBSITE_POINT_RELEASE: '3005.1'
+    DOC_BRANCH: 'v3006.0'
+    WEBSITE_POINT_RELEASE: '3006.0'
     WEBSITE_RELEASE: latest
   script:
     - ./build_epub.sh
@@ -152,14 +152,33 @@ latest-epub:
       - public/
     expire_in: 7 days
 
-latest-3005-html:
+latest-3006-html:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
+    DOC_BRANCH: 'v3006.0'
+    WEBSITE_POINT_RELEASE: '3006.0'
+    WEBSITE_RELEASE: '3006.0'
+  script:
+    - ./build_html.sh
+  cache:
+    key: venv-${DOC_BRANCH}
+    paths:
+      - venv/
+  artifacts:
+    paths:
+      - public/
+    expire_in: 7 days
+
+previous-3005-html:
+  stage: build-docs
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  variables:
+    BUILD_TYPE: previous
     DOC_BRANCH: 'v3005.1'
     WEBSITE_POINT_RELEASE: '3005.1'
-    WEBSITE_RELEASE: '3005.1'
+    WEBSITE_RELEASE: '3005'
   script:
     - ./build_html.sh
   cache:
@@ -171,33 +190,14 @@ latest-3005-html:
       - public/
     expire_in: 7 days
 
-previous-3004-html:
+previous-3005-pdf:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3004.2'
-    WEBSITE_POINT_RELEASE: '3004.2'
-    WEBSITE_RELEASE: '3004'
-  script:
-    - ./build_html.sh
-  cache:
-    key: venv-${DOC_BRANCH}
-    paths:
-      - venv/
-  artifacts:
-    paths:
-      - public/
-    expire_in: 7 days
-
-previous-3004-pdf:
-  stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
-  variables:
-    BUILD_TYPE: previous
-    DOC_BRANCH: 'v3004.2'
-    WEBSITE_POINT_RELEASE: '3004.2'
-    WEBSITE_RELEASE: '3004'
+    DOC_BRANCH: 'v3005.1'
+    WEBSITE_POINT_RELEASE: '3005.1'
+    WEBSITE_RELEASE: '3005'
   script:
     - ./build_pdf.sh
   cache:
@@ -209,14 +209,14 @@ previous-3004-pdf:
       - public/
     expire_in: 7 days
 
-previous-3004-epub:
+previous-3005-epub:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3004.2'
-    WEBSITE_POINT_RELEASE: '3004.2'
-    WEBSITE_RELEASE: '3004'
+    DOC_BRANCH: 'v3005.1'
+    WEBSITE_POINT_RELEASE: '3005.1'
+    WEBSITE_RELEASE: '3005'
   script:
     - ./build_epub.sh
   cache:
