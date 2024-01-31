@@ -1,0 +1,3 @@
+[submodule "builddocs/files/fonts"]
+	path = builddocs/files/fonts
+	url = https://gitlab.com/saltstack/open/docs/builddocs-fonts.git

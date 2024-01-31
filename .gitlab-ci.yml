@@ -20,6 +20,7 @@ include:
 
 variables:
   CICD_UPSTREAM_PATH: "saltstack/open/docs/builddocs"
+  GIT_SUBMODULE_STRATEGY: recursive
 
 .dockertags: &dockertags
   tags:
