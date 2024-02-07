@@ -101,8 +101,8 @@ latest-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3006.6'
-    WEBSITE_POINT_RELEASE: '3006.6'
+    DOC_BRANCH: 'v3006.7'
+    WEBSITE_POINT_RELEASE: '3006.7'
     WEBSITE_RELEASE: latest
   script:
     - ./build_html.sh
@@ -120,8 +120,8 @@ latest-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3006.6'
-    WEBSITE_POINT_RELEASE: '3006.6'
+    DOC_BRANCH: 'v3006.7'
+    WEBSITE_POINT_RELEASE: '3006.7'
     WEBSITE_RELEASE: latest
   script:
     - ./build_pdf.sh
@@ -140,7 +140,7 @@ latest-epub:
   variables:
     BUILD_TYPE: latest
     DOC_BRANCH: '3006.x'
-    WEBSITE_POINT_RELEASE: '3006.6'
+    WEBSITE_POINT_RELEASE: '3006.7'
     WEBSITE_RELEASE: latest
   script:
     - ./build_epub.sh
@@ -158,9 +158,9 @@ latest-3006-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: latest
-    DOC_BRANCH: 'v3006.6'
-    WEBSITE_POINT_RELEASE: '3006.6'
-    WEBSITE_RELEASE: '3006.6'
+    DOC_BRANCH: 'v3006.7'
+    WEBSITE_POINT_RELEASE: '3006.7'
+    WEBSITE_RELEASE: '3006.7'
   script:
     - ./build_html.sh
   cache:
