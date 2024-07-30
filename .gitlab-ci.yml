@@ -32,7 +32,7 @@ docker-image:
   extends: .kaniko-build
   variables:
     CONTAINER_NAME: builddocs
-    CONTAINER_TAG: '3.10.9'
+    CONTAINER_TAG: '3.10.14'
     CONTEXT_PATH: '/'
     DOCKERFILE_PATH: 'container/Dockerfile'
   only:
@@ -44,7 +44,7 @@ docker-image:
 
 master-html:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     DOC_BRANCH: master
     WEBSITE_POINT_RELEASE: master
@@ -62,7 +62,7 @@ master-html:
 
 master-pdf:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     DOC_BRANCH: master
     WEBSITE_POINT_RELEASE: master
@@ -80,7 +80,7 @@ master-pdf:
 
 master-epub:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     DOC_BRANCH: master
     WEBSITE_POINT_RELEASE: master
@@ -98,7 +98,7 @@ master-epub:
 
 latest-html:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: latest
     DOC_BRANCH: 'v3007.1'
@@ -117,7 +117,7 @@ latest-html:
 
 latest-pdf:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: latest
     DOC_BRANCH: 'v3007.1'
@@ -136,7 +136,7 @@ latest-pdf:
 
 latest-epub:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: latest
     DOC_BRANCH: '3007.x'
@@ -155,7 +155,7 @@ latest-epub:
 
 latest-3007-html:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: latest
     DOC_BRANCH: 'v3007.1'
@@ -174,7 +174,7 @@ latest-3007-html:
 
 previous-3006-html:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: previous
     DOC_BRANCH: 'v3006.9'
@@ -193,7 +193,7 @@ previous-3006-html:
 
 previous-3006-pdf:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: previous
     DOC_BRANCH: 'v3006.9'
@@ -212,7 +212,7 @@ previous-3006-pdf:
 
 previous-3006-epub:
   stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
+  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
   variables:
     BUILD_TYPE: previous
     DOC_BRANCH: 'v3006.9'
