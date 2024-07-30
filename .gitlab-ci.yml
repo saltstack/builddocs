@@ -177,8 +177,8 @@ previous-3006-html:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3006.8'
-    WEBSITE_POINT_RELEASE: '3006.8'
+    DOC_BRANCH: 'v3006.9'
+    WEBSITE_POINT_RELEASE: '3006.9'
     WEBSITE_RELEASE: '3006'
   script:
     - ./build_html.sh
@@ -196,8 +196,8 @@ previous-3006-pdf:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3006.8'
-    WEBSITE_POINT_RELEASE: '3006.8'
+    DOC_BRANCH: 'v3006.9'
+    WEBSITE_POINT_RELEASE: '3006.9'
     WEBSITE_RELEASE: '3006'
   script:
     - ./build_pdf.sh
@@ -215,8 +215,8 @@ previous-3006-epub:
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.9
   variables:
     BUILD_TYPE: previous
-    DOC_BRANCH: 'v3006.8'
-    WEBSITE_POINT_RELEASE: '3006.8'
+    DOC_BRANCH: 'v3006.9'
+    WEBSITE_POINT_RELEASE: '3006.9'
     WEBSITE_RELEASE: '3006'
   script:
     - ./build_epub.sh
