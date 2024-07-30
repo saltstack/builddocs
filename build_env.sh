@@ -20,4 +20,5 @@ python3 -m venv venv
 . venv/bin/activate
 pip install -U pip setuptools wheel
 (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt || pip install -r /root/salt/requirements/static/py3.10/docs.txt
-pip install jinja2==3.0.3
+# pip install jinja2==3.0.3
+pip install jaraco.text==3.14.0

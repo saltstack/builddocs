@@ -78,24 +78,6 @@ master-pdf:
       - public/
     expire_in: 7 days
 
-master-epub:
-  stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
-  variables:
-    DOC_BRANCH: master
-    WEBSITE_POINT_RELEASE: master
-    WEBSITE_RELEASE: master
-  script:
-    - ./build_epub.sh
-  cache:
-    key: venv-${DOC_BRANCH}
-    paths:
-      - venv/
-  artifacts:
-    paths:
-      - public/
-    expire_in: 7 days
-
 latest-html:
   stage: build-docs
   image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
@@ -125,25 +107,6 @@ latest-pdf:
     WEBSITE_RELEASE: latest
   script:
     - ./build_pdf.sh
-  cache:
-    key: venv-${DOC_BRANCH}
-    paths:
-      - venv/
-  artifacts:
-    paths:
-      - public/
-    expire_in: 7 days
-
-latest-epub:
-  stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
-  variables:
-    BUILD_TYPE: latest
-    DOC_BRANCH: '3007.x'
-    WEBSITE_POINT_RELEASE: '3007.1'
-    WEBSITE_RELEASE: latest
-  script:
-    - ./build_epub.sh
   cache:
     key: venv-${DOC_BRANCH}
     paths:
@@ -201,25 +164,6 @@ previous-3006-pdf:
     WEBSITE_RELEASE: '3006'
   script:
     - ./build_pdf.sh
-  cache:
-    key: venv-${DOC_BRANCH}
-    paths:
-      - venv/
-  artifacts:
-    paths:
-      - public/
-    expire_in: 7 days
-
-previous-3006-epub:
-  stage: build-docs
-  image: ${CI_REGISTRY_IMAGE}/builddocs:3.10.14
-  variables:
-    BUILD_TYPE: previous
-    DOC_BRANCH: 'v3006.9'
-    WEBSITE_POINT_RELEASE: '3006.9'
-    WEBSITE_RELEASE: '3006'
-  script:
-    - ./build_epub.sh
   cache:
     key: venv-${DOC_BRANCH}
     paths:
