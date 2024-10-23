@@ -14,11 +14,11 @@ mkdir -p /usr/share/fonts/opentype
 cp -rfv builddocs/files/fonts/truetype/* /usr/share/fonts/truetype/
 cp -rfv builddocs/files/fonts/opentype/* /usr/share/fonts/opentype/
 fc-cache -f -v
-git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt /root/salt
-python3 -m venv venv
+# git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt /root/salt
+# python3 -m venv venv
 # shellcheck disable=SC1091
-. venv/bin/activate
-pip install -U pip setuptools wheel
-(pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt || pip install -r /root/salt/requirements/static/py3.10/docs.txt
-# pip install jinja2==3.0.3
-pip install jaraco.text==3.14.0
+#. venv/bin/activate
+#pip install -U pip setuptools wheel
+#(pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt || pip install -r /root/salt/requirements/static/py3.10/docs.txt
+## pip install jinja2==3.0.3
+#pip install jaraco.text==3.14.0
