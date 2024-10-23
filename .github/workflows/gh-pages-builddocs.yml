@@ -30,7 +30,7 @@ jobs:
   # master HTML
   master-html:
     runs-on: ubuntu-latest
-    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest@sha256:d68f8cccdbfbfe7eb74336adf8e12be525e6c77b4fa35249088e7eee5e400e7d
     env:
       DOC_BRANCH: master
       WEBSITE_POINT_RELEASE: master
@@ -42,16 +42,11 @@ jobs:
           submodules: 'true'
       - name: Checkout Salt
         run: |
-          git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt /root/salt
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip'
+          git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
       - name: Install Python prereqs
         run: |
           pip install -U pip setuptools wheel
-          (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt && pip install -r /root/salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r /root/salt/requirements/static/ci/py3.10/docs.txt || pip install -r /root/salt/requirements/static/py3.10/docs.txt
+          (pip install -r salt/requirements/static/ci/py3.10/docs.txt && pip install -r salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r salt/requirements/static/ci/py3.10/docs.txt && pip install -r salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r salt/requirements/static/ci/py3.10/docs.txt || pip install -r salt/requirements/static/py3.10/docs.txt
           pip install jaraco.text==3.14.0
       - name: Build docs
         run: |
