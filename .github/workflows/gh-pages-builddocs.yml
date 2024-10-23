@@ -29,7 +29,8 @@ defaults:
 jobs:
   # master HTML
   master-html:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       DOC_BRANCH: master
       WEBSITE_POINT_RELEASE: master
@@ -47,7 +48,8 @@ jobs:
     
   # master PDF
   master-pdf:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       DOC_BRANCH: master
       WEBSITE_POINT_RELEASE: master
@@ -65,7 +67,8 @@ jobs:
 
   # latest HTML
   latest-html:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
       DOC_BRANCH: 'v3007.1'
@@ -84,7 +87,8 @@ jobs:
     
   # lastest PDF
   latest-pdf:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
       DOC_BRANCH: 'v3007.1'
@@ -103,7 +107,8 @@ jobs:
 
   # latest-3007 HTML
   latest-3007-html:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
       DOC_BRANCH: 'v3007.1'
@@ -122,7 +127,8 @@ jobs:
 
   # previous-3006 html
   previous-3006-html:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
       DOC_BRANCH: 'v3006.9'
@@ -141,7 +147,8 @@ jobs:
 
   # previous-3006 PDF
   previous-3006-pdf:
-    runs-on: ghcr.io/saltstack/builddocs:docker-container
+    runs-on: ubuntu-latest
+    container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
       DOC_BRANCH: 'v3006.9'
