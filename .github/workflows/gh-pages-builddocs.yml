@@ -43,6 +43,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -79,6 +80,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -115,6 +117,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -151,6 +154,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -187,6 +191,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -223,6 +228,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
@@ -259,6 +265,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
