@@ -52,6 +52,7 @@ jobs:
           pip install jaraco.text==3.14.0
       - name: Build docs
         run: |
+          source venv/bin/activate
           ./build_html.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -66,12 +67,12 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - master-html
-      - master-pdf
-      - latest-html
-      - latest-pdf
-      - latest-3007-html
-      - previous-3006-html
-      - previous-3006-pdf
+      #- master-pdf
+      #- latest-html
+      #- latest-pdf
+      #- latest-3007-html
+      #- previous-3006-html
+      #- previous-3006-pdf
     if: success() && github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
