@@ -40,15 +40,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: 'true'
-      - name: Checkout Salt
+      - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
+          sed -i "s:^immutables==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
+          sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
       - name: Install Python prereqs
         run: |
           python3 -m venv venv
           source venv/bin/activate
           pip install -U pip setuptools wheel
-          (pip install -r salt/requirements/static/ci/py3.10/docs.txt && pip install -r salt/requirements/static/pkg/py3.10/linux.txt) | (pip install -r salt/requirements/static/ci/py3.10/docs.txt && pip install -r salt/requirements/static/pkg/py3.10/linux.txt) || pip install -r salt/requirements/static/ci/py3.10/docs.txt || pip install -r salt/requirements/static/py3.10/docs.txt
+          pip install -r salt/requirements/static/ci/py3.10/docs.txt && pip install -r salt/requirements/static/pkg/py3.10/linux.txt
           pip install jaraco.text==3.14.0
       - name: Build docs
         run: |
