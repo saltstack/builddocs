@@ -194,7 +194,7 @@ jobs:
       BUILD_TYPE: latest
       DOC_BRANCH: 'v3007.1'
       WEBSITE_POINT_RELEASE: '3007.1'
-      WEBSITE_RELEASE: '3007.1'
+      WEBSITE_RELEASE: '3007'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -331,10 +331,42 @@ jobs:
       - name: Display all downloaded archives/artifacts
         run: |
           ls -lah
-          echo "List *html/*..."
+
+          echo "
+          Listing *html/*..."
           ls -lah *html/*
-          echo "List *pdf/*..."
+
+          echo "
+          Listing *pdf/*..."
           ls -lah *pdf/*
+      - name: Create and populate docs-saltproject-io directory structure
+        run: |
+          echo "
+          Creating docs-saltproject-io directory structure..."
+          mkdir -p docs-saltproject-io/en
+          mkdir -p docs-saltproject-io/salt/install-guide/en/latest
+          mkdir -p docs-saltproject-io/salt/user-guide/en/latest
+          mkdir -p docs-saltproject-io/pdf
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/en/index.html
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/salt/install-guide/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/salt/install-guide/en/index.html
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/salt/user-guide/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/salt/user-guide/en/index.html
+
+          echo "
+          Moving built docs to expected docs file paths..."
+          mv *-html/* docs-saltproject-io/en/
+          mv *-pdf/pdf/* docs-saltproject-io/pdf/
+      - name: Create tarball of docs
+        run: |
+          tar cvzf docs-saltproject-io.tar.gz docs-saltproject-io
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: docs-saltproject-io.tar.gz
+          if-no-files-found: error
+          retention-days: 1
 
   # Deployment job
   deploy:
