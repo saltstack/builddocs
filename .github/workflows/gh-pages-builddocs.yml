@@ -308,11 +308,7 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  single-tarball-site-archive:
     runs-on: ubuntu-latest
     needs:
       - master-html
@@ -322,6 +318,32 @@ jobs:
       - latest-3007-html
       - previous-3006-html
       - previous-3006-pdf
+    if: success()
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+      - name: Download salt-install-guide and salt-user-guide
+        run: |
+          # TODO
+          # - Download salt-install-guide
+          # - Download salt-user-guide
+          curl -o salt.sources -L https://github.com/saltstack/salt-install-guide/releases/download/latest/salt.sources
+      - name: Display all downloaded archives/artifacts
+        run: |
+          ls -lah
+          echo "List *html/*..."
+          ls -lah *html/*
+          echo "List *pdf/*..."
+          ls -lah *pdf/*
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs:
+      - single-tarball-site-archive
     if: success() && github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
