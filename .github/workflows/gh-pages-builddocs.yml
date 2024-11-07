@@ -59,9 +59,12 @@ jobs:
           source venv/bin/activate
           ./build_html.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: master-html
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
 
   # master PDF
@@ -96,9 +99,12 @@ jobs:
           source venv/bin/activate
           ./build_pdf.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: master-pdf
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
   # latest HTML
   latest-html:
@@ -133,9 +139,12 @@ jobs:
           source venv/bin/activate
           ./build_html.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: latest-html
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
   # lastest PDF
   latest-pdf:
@@ -170,11 +179,14 @@ jobs:
           source venv/bin/activate
           ./build_pdf.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: latest-pdf
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
-  # latest-3007 HTML
+  # latest-sts HTML
   latest-3007-html:
     runs-on: ubuntu-latest
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
@@ -207,11 +219,14 @@ jobs:
           source venv/bin/activate
           ./build_html.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: 3007-html
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
-  # previous-3006 html
+  # previous-lts html
   previous-3006-html:
     runs-on: ubuntu-latest
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
@@ -245,11 +260,14 @@ jobs:
           source venv/bin/activate
           ./build_html.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: 3006-html
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
-  # previous-3006 PDF
+  # previous-lts PDF
   previous-3006-pdf:
     runs-on: ubuntu-latest
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
@@ -283,9 +301,12 @@ jobs:
           source venv/bin/activate
           ./build_pdf.sh
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ./public
+          name: 3006-pdf
+          path: ./public/
+          if-no-files-found: error
+          retention-days: 1
 
   # Deployment job
   deploy:
