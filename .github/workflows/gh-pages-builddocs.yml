@@ -322,12 +322,6 @@ jobs:
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
-      - name: Download salt-install-guide and salt-user-guide
-        run: |
-          # TODO
-          # - Download salt-install-guide
-          # - Download salt-user-guide
-          curl -o salt.sources -L https://github.com/saltstack/salt-install-guide/releases/download/latest/salt.sources
       - name: Display all downloaded archives/artifacts
         run: |
           ls -lah
@@ -344,9 +338,9 @@ jobs:
           echo "
           Creating docs-saltproject-io directory structure..."
           mkdir -p docs-saltproject-io/en
-          mkdir -p docs-saltproject-io/salt/install-guide/en/latest
-          mkdir -p docs-saltproject-io/salt/user-guide/en/latest
-          mkdir -p docs-saltproject-io/pdf
+          mkdir -p docs-saltproject-io/en/pdf
+          mkdir -p docs-saltproject-io/salt/install-guide/en
+          mkdir -p docs-saltproject-io/salt/user-guide/en
           echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/index.html
           echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/en/index.html
           echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/salt/install-guide/index.html
@@ -357,13 +351,27 @@ jobs:
           echo "
           Moving built docs to expected docs file paths..."
           mv *-html/* docs-saltproject-io/en/
-          mv *-pdf/pdf/* docs-saltproject-io/pdf/
+          mv *-pdf/pdf/* docs-saltproject-io/en/pdf/
+      - name: Download salt-install-guide and salt-user-guide
+        run: |
+          touch checksums.txt
+          curl -o salt-install-guide.tar.gz -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/salt-install-guide.tar.gz
+          curl -fsSL https://github.com/saltstack/salt-install-guide/releases/latest/download/checksums.txt | tee --append checksums.txt
+          curl -o salt-user-guide.tar.gz -fsSL https://github.com/saltstack/salt-user-guide/releases/latest/download/salt-user-guide.tar.gz
+          curl -fsSL https://github.com/saltstack/salt-user-guide/releases/latest/download/checksums.txt | tee --append checksums.txt
+          sha512sum -c checksums.txt --ignore-missing
+
+          tar xvf salt-install-guide.tar.gz
+          tar xvf salt-user-guide.tar.gz
+          mv salt-install-guide docs-saltproject-io/salt/install-guide/en/latest
+          mv salt-user-guide docs-saltproject-io/salt/user-guide/en/latest
       - name: Create tarball of docs
         run: |
           tar cvzf docs-saltproject-io.tar.gz docs-saltproject-io
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
+          name: docs-saltproject-io
           path: docs-saltproject-io.tar.gz
           if-no-files-found: error
           retention-days: 1
