@@ -335,12 +335,12 @@ jobs:
           mkdir -p docs-saltproject-io/en/pdf
           mkdir -p docs-saltproject-io/salt/install-guide/en
           mkdir -p docs-saltproject-io/salt/user-guide/en
-          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/index.html
-          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/en/index.html
-          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/salt/install-guide/index.html
-          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/salt/install-guide/en/index.html
-          echo '<meta http-equiv="refresh" content="0; url=en/latest/" />' > docs-saltproject-io/salt/user-guide/index.html
-          echo '<meta http-equiv="refresh" content="0; url=latest/" />' > docs-saltproject-io/salt/user-guide/en/index.html
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/contents.html" />' > docs-saltproject-io/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/contents.html" />' > docs-saltproject-io/en/index.html
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/index.html" />' > docs-saltproject-io/salt/install-guide/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/index.html" />' > docs-saltproject-io/salt/install-guide/en/index.html
+          echo '<meta http-equiv="refresh" content="0; url=en/latest/index.html" />' > docs-saltproject-io/salt/user-guide/index.html
+          echo '<meta http-equiv="refresh" content="0; url=latest/index.html" />' > docs-saltproject-io/salt/user-guide/en/index.html
 
           echo "
           Moving built docs to expected docs file paths..."
