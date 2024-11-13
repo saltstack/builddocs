@@ -371,6 +371,7 @@ jobs:
           retention-days: 1
       - name: Upload docs-saltproject-io for GitHub Pages
         uses: actions/upload-pages-artifact@v3
+        if: success() && github.ref == 'refs/heads/main'
         with:
           path: ./docs-saltproject-io
 
