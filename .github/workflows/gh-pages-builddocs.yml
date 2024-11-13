@@ -362,24 +362,29 @@ jobs:
       - name: Create tarball of docs
         run: |
           tar cvzf docs-saltproject-io.tar.gz docs-saltproject-io
-      - name: Upload artifact
+      - name: Upload docs-saltproject-io.tar.gz
         uses: actions/upload-artifact@v4
         with:
           name: docs-saltproject-io
           path: docs-saltproject-io.tar.gz
           if-no-files-found: error
           retention-days: 1
+      - name: Upload docs-saltproject-io for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        if: success() && github.ref == 'refs/heads/main'
+        with:
+          path: ./docs-saltproject-io
 
   # Deployment job
-  #deploy:
-  #  environment:
-  #    name: github-pages
-  #    url: ${{ steps.deployment.outputs.page_url }}
-  #  runs-on: ubuntu-latest
-  #  needs:
-  #    - single-tarball-site-archive
-  #  if: success() && github.ref == 'refs/heads/main'
-  #  steps:
-  #    - name: Deploy to GitHub Pages
-  #      id: deployment
-  #      uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs:
+      - single-tarball-site-archive
+    if: success() && github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
