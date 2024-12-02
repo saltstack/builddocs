@@ -39,9 +39,6 @@ then
 	exit 1
 fi
 
-if [ "${WEBSITE_RELEASE}" != "latest" ]
-then
-	echo '<meta http-equiv="refresh" content="0; url=contents.html" />' > salt/doc/_build/html/index.html
-fi
+echo '<meta http-equiv="refresh" content="0; url=contents.html" />' > salt/doc/_build/html/index.html
 mkdir -p ./public/
 rsync -a salt/doc/_build/html/ "./public/${WEBSITE_RELEASE}/"
