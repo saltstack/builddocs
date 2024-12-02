@@ -23,7 +23,7 @@ defaults:
 jobs:
   # master HTML
   master-html:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       DOC_BRANCH: master
@@ -63,7 +63,7 @@ jobs:
 
   # master PDF
   master-pdf:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       DOC_BRANCH: master
@@ -102,7 +102,7 @@ jobs:
 
   # latest HTML
   latest-html:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
@@ -142,7 +142,7 @@ jobs:
 
   # lastest PDF
   latest-pdf:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
@@ -182,7 +182,7 @@ jobs:
 
   # latest-sts HTML
   latest-3007-html:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
@@ -222,7 +222,7 @@ jobs:
 
   # previous-lts html
   previous-3006-html:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
@@ -263,7 +263,7 @@ jobs:
 
   # previous-lts PDF
   previous-3006-pdf:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
@@ -303,7 +303,7 @@ jobs:
           retention-days: 1
 
   single-tarball-site-archive:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs:
       - master-html
       - master-pdf
@@ -380,7 +380,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs:
       - single-tarball-site-archive
     if: success() && github.ref == 'refs/heads/main'
