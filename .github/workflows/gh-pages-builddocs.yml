@@ -226,8 +226,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
-      DOC_BRANCH: 'v3006.9'
-      WEBSITE_POINT_RELEASE: '3006.9'
+      DOC_BRANCH: 'v3006.10'
+      WEBSITE_POINT_RELEASE: '3006.10'
       WEBSITE_RELEASE: '3006'
     steps:
       - name: Checkout
@@ -244,6 +244,7 @@ jobs:
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
       - name: Install Python prereqs
         run: |
+          apt update && apt install libffi-dev -y
           python3 -m venv venv
           source venv/bin/activate
           pip install -U pip setuptools wheel
@@ -267,8 +268,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
-      DOC_BRANCH: 'v3006.9'
-      WEBSITE_POINT_RELEASE: '3006.9'
+      DOC_BRANCH: 'v3006.10'
+      WEBSITE_POINT_RELEASE: '3006.10'
       WEBSITE_RELEASE: '3006'
     steps:
       - name: Checkout
@@ -285,6 +286,7 @@ jobs:
           sed -i "s:^rpm-vercmp==.*::g" salt/requirements/static/pkg/py3.10/linux.txt
       - name: Install Python prereqs
         run: |
+          apt update && apt install libffi-dev -y
           python3 -m venv venv
           source venv/bin/activate
           pip install -U pip setuptools wheel
