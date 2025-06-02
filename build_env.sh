@@ -6,7 +6,7 @@
 # See https://github.com/saltstack/salt/blob/master/doc/conf.py for more information
 
 export LATEST_RELEASE='3007.2'
-export PREVIOUS_RELEASE="${PREVIOUS_RELEASE:-3006.10}"
+export PREVIOUS_RELEASE="${PREVIOUS_RELEASE:-3006.11}"
 export PREVIOUS_RELEASE_DIR="${PREVIOUS_RELEASE_DIR:-3006}"
 
 mkdir -p /usr/share/fonts/truetype
