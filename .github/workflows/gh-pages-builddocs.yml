@@ -106,8 +106,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3007.14'
-      WEBSITE_POINT_RELEASE: '3007.14'
+      DOC_BRANCH: 'v3008.0'
+      WEBSITE_POINT_RELEASE: '3008.0'
       WEBSITE_RELEASE: latest
     steps:
       - name: Checkout
@@ -146,8 +146,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3007.14'
-      WEBSITE_POINT_RELEASE: '3007.14'
+      DOC_BRANCH: 'v3008.0'
+      WEBSITE_POINT_RELEASE: '3008.0'
       WEBSITE_RELEASE: latest
     steps:
       - name: Checkout
@@ -181,14 +181,14 @@ jobs:
           retention-days: 1
 
   # latest-sts HTML
-  latest-3007-html:
+  latest-3008-html:
     runs-on: ubuntu-24.04
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3007.14'
-      WEBSITE_POINT_RELEASE: '3007.14'
-      WEBSITE_RELEASE: '3007'
+      DOC_BRANCH: 'v3008.0'
+      WEBSITE_POINT_RELEASE: '3008.0'
+      WEBSITE_RELEASE: '3008'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -215,7 +215,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: 3007-html
+          name: 3008-html
           path: ./public/
           if-no-files-found: error
           retention-days: 1
@@ -311,7 +311,7 @@ jobs:
       - master-pdf
       - latest-html
       - latest-pdf
-      - latest-3007-html
+      - latest-3008-html
       - previous-3006-html
       - previous-3006-pdf
     if: success()
