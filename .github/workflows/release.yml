@@ -1,0 +1,40 @@
+name: Release docs
+
+# Manually triggered after the Salt release is cut. Finds the open
+# topic/release/* PR and merges it. The existing gh-pages-builddocs.yml
+# workflow takes it from there on push to main.
+
+on:
+  workflow_dispatch:
+    inputs:
+      salt_version:
+        description: 'Salt version, e.g. 3008.1'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge open topic/release/* PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          prs=$(gh pr list --repo "$REPO" --state open \
+                  --json number,headRefName,title \
+                  --jq '[.[] | select(.headRefName | startswith("topic/release/"))]')
+          count=$(echo "$prs" | jq 'length')
+          if [[ "$count" -ne 1 ]]; then
+            echo "::error::expected 1 open topic/release/* PR, found $count"
+            echo "$prs" | jq -r '.[] | "  #\(.number) [\(.headRefName)] \(.title)"' >&2
+            exit 1
+          fi
+          pr=$(echo "$prs" | jq -r '.[0].number')
+          echo "merging PR #$pr for Salt ${{ inputs.salt_version }}"
+          gh pr merge --repo "$REPO" "$pr" --merge
