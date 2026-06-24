@@ -237,6 +237,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          find salt/requirements -name "linux*" | sort
           sed -i "s:^timelib==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
           sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
@@ -279,6 +280,7 @@ jobs:
       - name: Checkout and prep Salt
         run: |
           git clone --depth 1 -b "${DOC_BRANCH}" https://github.com/saltstack/salt
+          find salt/requirements -name "linux*" | sort
           sed -i "s:^timelib==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
           sed -i "s:^cffi==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
           sed -i "s:^contextvars==.*::g" salt/requirements/static/pkg/py3.10/linux.lock
