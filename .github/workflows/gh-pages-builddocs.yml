@@ -106,8 +106,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3008.2'
-      WEBSITE_POINT_RELEASE: '3008.2'
+      DOC_BRANCH: 'v3008.3'
+      WEBSITE_POINT_RELEASE: '3008.3'
       WEBSITE_RELEASE: latest
     steps:
       - name: Checkout
@@ -146,8 +146,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3008.2'
-      WEBSITE_POINT_RELEASE: '3008.2'
+      DOC_BRANCH: 'v3008.3'
+      WEBSITE_POINT_RELEASE: '3008.3'
       WEBSITE_RELEASE: latest
     steps:
       - name: Checkout
@@ -186,8 +186,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: latest
-      DOC_BRANCH: 'v3008.2'
-      WEBSITE_POINT_RELEASE: '3008.2'
+      DOC_BRANCH: 'v3008.3'
+      WEBSITE_POINT_RELEASE: '3008.3'
       WEBSITE_RELEASE: '3008'
     steps:
       - name: Checkout
@@ -226,8 +226,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
-      DOC_BRANCH: 'v3006.27'
-      WEBSITE_POINT_RELEASE: '3006.27'
+      DOC_BRANCH: 'v3006.28'
+      WEBSITE_POINT_RELEASE: '3006.28'
       WEBSITE_RELEASE: '3006'
     steps:
       - name: Checkout
@@ -269,8 +269,8 @@ jobs:
     container: ghcr.io/saltstack/salt-ci-containers/builddocs:latest
     env:
       BUILD_TYPE: previous
-      DOC_BRANCH: 'v3006.27'
-      WEBSITE_POINT_RELEASE: '3006.27'
+      DOC_BRANCH: 'v3006.28'
+      WEBSITE_POINT_RELEASE: '3006.28'
       WEBSITE_RELEASE: '3006'
     steps:
       - name: Checkout
